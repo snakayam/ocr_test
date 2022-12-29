@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <!-- ① CDNでCSSを読み込み -->
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
     <div id="app">
@@ -162,6 +164,27 @@
         }).mount('#app');
 
     </script>
+    
+    <!-- AR実装部分 -->
+    <a-scene embedded arjs>
+	<!-- ココに実際のシステムの挙動を追加する -->
+    <a-assets>
+      <img id="front" src="curry.jpeg"/>
+    </a-assets>
+		<a-marker preset="hiro">
+		<!-- 使用するオブジェクトを記述する -->
+			<a-plane
+				position="0 .75 0"
+				rotation="-90 0 0"
+				width="1.75"
+				material="src: #front;">
+			</a-plane>
+			<a-text value="テスト" position="0 0 0" align="center"></a-text>
+		</a-marker>
+
+		<a-entity camera></a-entity>
+
+	</a-scene>
 </body>
 </html>
 
