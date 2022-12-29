@@ -12,28 +12,6 @@
         <div ref="canvas-container" style="width:100%;margin:0 auto;">
             <canvas ref="canvas"></canvas>
         </div>
-	    
-	<!-- AR実装部分 -->
-    <a-scene embedded arjs>
-	<!-- ココに実際のシステムの挙動を追加する -->
-    <a-assets>
-      <img id="front" src="curry.jpeg"/>
-    </a-assets>
-		<a-marker preset="hiro">
-		<!-- 使用するオブジェクトを記述する -->
-			<a-plane
-				position="0 .75 0"
-				rotation="-90 0 0"
-				width="1.75"
-				material="src: #front;">
-			</a-plane>
-			<a-text value="テスト" position="0 0 0" align="center"></a-text>
-		</a-marker>
-
-		<a-entity camera></a-entity>
-
-	</a-scene>
-	    
         <div class="text-center pt-3">
             <!-- ② Status によって表示ブロックを切り替える -->
             <!-- play： カメラの映像をキャンバスにリアルタイムで表示 -->
@@ -186,7 +164,27 @@
         }).mount('#app');
 
     </script>
-    
+	
+    <!-- AR実装部分 -->
+    <a-scene embedded arjs>
+    <!-- ココに実際のシステムの挙動を追加する -->
+    <a-assets>
+      <img id="front" src="curry.png"/>
+    </a-assets>
+		<a-marker preset="hiro">
+		<!-- 使用するオブジェクトを記述する -->
+			<a-plane
+				position="0 .75 0"
+				rotation="-90 0 0"
+				width="1.75"
+				material="src: #front;">
+			</a-plane>
+			<a-text value="テスト" position="0 0 0" align="center"></a-text>
+		</a-marker>
+
+		<a-entity camera></a-entity>
+
+	</a-scene>
 </body>
 </html>
 
